@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './Adoption.css';
+
 class Adoption extends Component {
     constructor(props){
         super(props)
@@ -36,3 +38,5 @@ class Adoption extends Component {
 }
 
 export default Adoption;
+
+

@@ -34,6 +34,7 @@ class Queue {
     }
     return node.value;
   }
+  
   remove(data) {
     if (!this.first) {
       return null;
@@ -56,4 +57,7 @@ class Queue {
     previousNode.next = currNode.next;
   }
 }
+
 module.exports = Queue;
+
+
