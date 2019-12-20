@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Adoption.css';
+import UserApiService from "../services/user-api-service";
+import {Link} from "react-router-dom";
 
 class Adoption extends Component {
     constructor(props){
@@ -12,17 +14,6 @@ class Adoption extends Component {
         }
     }
 
-    joinLine(bool){
-        switch (bool) {
-            case 'Cat':
-                break;
-            case 'Dog':
-                break;
-            default:
-                break;
-        }
-    }
-
     render() {
         return (
             <div className="adoption">
@@ -31,7 +22,7 @@ class Adoption extends Component {
                     <h3>{animal.header} Lovers</h3>
                     <p>{animal.description} </p>
                     <p>Would you like to take a place in line to start the adoption process? </p>
-                    <button onClick={()=> this.joinLine(animal.header)}>Join {animal.header} Line</button>
+                    <Link to='/queue'>Join Adoption Line</Link>
                 </section>)}
             </div>
         );

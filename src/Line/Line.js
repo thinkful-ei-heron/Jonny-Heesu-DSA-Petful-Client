@@ -5,29 +5,22 @@ class Line extends Component {
     constructor(props){
         super(props)
         this.state = {
+            input: '',
             timeToWait: 0,
             positionInLine: 0
         }
     }
 
     componentDidMount() {
-        this.props.users
-        setInterval()
     }
 
+    handleInput(e){ this.setState({input: e.target.value})}
     render() {
         return (
-            <ul className="animals-list">
-                {this.props.animals.map((animal, index) =>
-                    <div key={index}>
-                        <img src={animal.imageURL} alt={animal.imageDescription}/>
-                        <h3>{animal.name}</h3>
-                        <p>Sex: {animal.sex}</p>
-                        <p>Age: {animal.age}</p>
-                        <p>Breed: {animal.breed}</p>
-                        <p>Story: {animal.story}</p>
-                    </div>)}
-            </ul>
+            <div className="line-list">
+                <h2>Current Queue:</h2>
+                {this.props.users.map((user,index)=> <p key={index}>{user.name}</p>)}
+            </div>
         );
     }
 };

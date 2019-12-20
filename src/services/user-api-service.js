@@ -1,22 +1,45 @@
-const UserService = {
-    saveUser(user) {
-        window.localStorage.setItem('userInfo', JSON.stringify(user))
+import config from '../config'
+
+const UserApiService = {
+    getAllUsers() {
+        return fetch(`${config.API_ENDPOINT}/api/users`)
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
-    getUser() {
-        try {
-            return JSON.parse(window.localStorage.getItem('userInfo'));
-        } catch(error){
-            console.log(error);
-            UserService.clearUser();
-        }},
-    clearUser() {
-        window.localStorage.removeItem('userInfo')
+    getUser(userId) {
+        return fetch(`${config.API_ENDPOINT}/api/users/${userId}`)
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     },
-    hasUserInfo() {
-        return !!UserService.getUser()
+    postUser(name) {
+        return fetch(`${config.API_ENDPOINT}/api/users`, {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(name)
+        })
     },
+    deleteUser(id) {
+        return fetch(`${config.API_ENDPOINT}/api/users/${id}`, {
+            method: 'DELETE',
+        })
+    },
+    moveLine(){
+        return fetch(`${config.API_ENDPOINT}/api/users/line`)
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    }
 };
 
-export default UserService;
+export default UserApiService;
+
 
 
