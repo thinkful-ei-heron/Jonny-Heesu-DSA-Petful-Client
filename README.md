@@ -2,7 +2,7 @@
 
 ## Pair: Jonny Deates and Heesu Kang
 
-Live Page: [FIFO](https://fifo-pet-adoption-agency.now.sh/)
+Live Page: [FIFO Pet Adaption Agency](https://fifo-pet-adoption-agency.now.sh/)
 
 -----------------------
 
