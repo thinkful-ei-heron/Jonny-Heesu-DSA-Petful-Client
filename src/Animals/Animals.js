@@ -6,7 +6,7 @@ class Animals extends Component {
         return (
             <ul className="animals-list">
                 {this.props.animals.map((animal, index) =>
-                    <div key={index}>
+                    <div className='info' key={index}>
                         <img src={animal.imageURL} alt='animals'/>
                         <h3>{animal.name}</h3>
                         <p>Description: {animal.imageDescription}</p>

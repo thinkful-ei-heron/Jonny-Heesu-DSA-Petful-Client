@@ -41,7 +41,7 @@ class App extends Component {
                     <Switch>
                         <Route path={'/adopt'} component={() => <Adoption/>}/>
                         <Route path={'/animals'} component={() => <Animals animals={[...this.state.cats, ...this.state.dogs]}/>}/>
-                         <Route path={'/queue'} component={() => <Line users={this.state.users}/>}/>
+                        <Route path={'/queue'} component={() => <Line users={this.state.users}/>}/>
                         <Route exact path={'/'} component={() => <Home/>}/>
                     </Switch>
                     

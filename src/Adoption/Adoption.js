@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Adoption.css';
-import UserApiService from "../services/user-api-service";
+//import UserApiService from "../services/user-api-service";
 import {Link} from "react-router-dom";
 
 class Adoption extends Component {
@@ -17,7 +17,7 @@ class Adoption extends Component {
     render() {
         return (
             <div className="adoption">
-                <h1>Adoption</h1>
+                <h2>Adoption</h2>
                 {this.state.animalTypes.map((animal,index) => <section key={index} className={animal.className}>
                     <h3>{animal.header} Lovers</h3>
                     <p>{animal.description} </p>

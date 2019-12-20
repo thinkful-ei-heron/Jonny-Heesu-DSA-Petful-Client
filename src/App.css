@@ -1,9 +1,12 @@
 .App {
-  text-align: center;
   font-family: 'PT Sans', sans-serif;
 }
 
+body {
+  text-align: center;
+  background-color: #fdf1d4;
+}
+
 footer {
-  padding-top: 10rem;
-  padding-bottom: 2rem;
+  padding-top: 7rem;
 }

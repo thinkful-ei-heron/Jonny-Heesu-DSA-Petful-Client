@@ -1,4 +1,16 @@
 footer {
-  padding-top: 10rem;
+  padding-top: 9rem;
   padding-bottom: 2rem;
 }
+
+.home {
+  text-align: center;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  font-size: 1.4rem;
+}
+
+h2 {
+  padding-top: 3rem;
+}
+
