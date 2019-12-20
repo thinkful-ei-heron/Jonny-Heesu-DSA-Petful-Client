@@ -17,4 +17,6 @@ const UserService = {
     },
 };
 
-export default UserService
+export default UserService;
+
+

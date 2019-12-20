@@ -24,4 +24,7 @@ const CatApiService = {
     }
 };
 
-export default CatApiService
+export default CatApiService;
+
+
+

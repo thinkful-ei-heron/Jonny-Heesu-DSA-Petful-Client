@@ -24,4 +24,7 @@ const DogApiService = {
     }
 };
 
-export default DogApiService
+export default DogApiService;
+
+
+

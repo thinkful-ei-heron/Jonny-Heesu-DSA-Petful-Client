@@ -9,13 +9,13 @@ class Line extends Component {
             positionInLine: 0
         }
     }
+
     componentDidMount() {
-        this.props.users.
+        this.props.users
         setInterval()
     }
 
     render() {
-
         return (
             <ul className="animals-list">
                 {this.props.animals.map((animal, index) =>
@@ -30,6 +30,9 @@ class Line extends Component {
             </ul>
         );
     }
-}
+};
 
 export default Line;
+
+
+

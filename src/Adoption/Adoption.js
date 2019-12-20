@@ -22,6 +22,7 @@ class Adoption extends Component {
                 break;
         }
     }
+
     render() {
         return (
             <div className="adoption">
@@ -35,7 +36,7 @@ class Adoption extends Component {
             </div>
         );
     }
-}
+};
 
 export default Adoption;
 

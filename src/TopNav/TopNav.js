@@ -14,6 +14,9 @@ class TopNav extends Component {
             </div>
         );
     }
-}
+};
 
 export default TopNav;
+
+
+

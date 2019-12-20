@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import TopNav from "./TopNav/TopNav";
 import {BrowserRouter as Router, Route,Switch} from "react-router-dom";
@@ -9,7 +9,7 @@ import Adoption from "./Adoption/Adoption";
 import DogApiService from "./services/dogs-api-service";
 import CatApiService from "./services/cats-api-service";
 //import Queue from "./Utils/queue"
-import Line from "./Line/Line";
+//import Line from "./Line/Line";
 class App extends Component {
     constructor(props) {
         super(props);
@@ -22,14 +22,12 @@ class App extends Component {
     }
 
     componentDidMount() {
-      //  this.state.users.enqueue({name: 'Tom', time: 10});
+    //  this.state.users.enqueue({name: 'Tom', time: 10});
         DogApiService.getAllDogs()
             .then(res=> this.setState({dogs: res}));
         CatApiService.getAllCats()
             .then(res=> this.setState({cats: res}));
-
     }
-
 
     render() {
         return (
@@ -37,15 +35,11 @@ class App extends Component {
                 <div className="App">
                     <Route render={(routeProps) => <TopNav currentActive={routeProps.location}
                                                     links={this.state.links}/>}/>
-                    <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                        <h1 className="App-title">Welcome to React</h1>
-                    </header>
                     
                     <Switch>
                         <Route path={'/adopt'} component={() => <Adoption/>}/>
                         <Route path={'/animals'} component={() => <Animals animals={[...this.state.cats, ...this.state.dogs]}/>}/>
-                        <Route path={'/queue'} component={() => <Line users={this.state.users}/>}/>
+                        {/* <Route path={'/queue'} component={() => <Line users={this.state.users}/>}/> */}
                         <Route exact path={'/'} component={() => <Home/>}/>
                     </Switch>
                     
@@ -56,7 +50,7 @@ class App extends Component {
             </Router>
         );
     }
-}
+};
 
 export default App;
 
