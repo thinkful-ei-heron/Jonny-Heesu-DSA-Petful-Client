@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
-import './Animals.css';
+import './Line.css';
 
-class Animals extends Component {
+class Line extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            timeToWait: 0,
+            positionInLine: 0
+        }
+    }
+    componentDidMount() {
+        this.props.users.
+        setInterval()
+    }
+
     render() {
 
         return (
@@ -20,4 +32,4 @@ class Animals extends Component {
     }
 }
 
-export default Animals;
+export default Line;

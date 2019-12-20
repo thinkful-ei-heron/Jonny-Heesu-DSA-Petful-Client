@@ -6,15 +6,30 @@ import {BrowserRouter as Router, Route,Switch} from "react-router-dom";
 import Home from "./Home/Home";
 import Animals from "./Animals/Animals";
 import Adoption from "./Adoption/Adoption";
-
+import DogApiService from "./services/dogs-api-service";
+import CatApiService from "./services/cats-api-service";
+//import Queue from "./Utils/queue"
+import Line from "./Line/Line";
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             links: [{name: 'Home', to:'/'},{name: 'Animals', to:'/animals'}, {name: 'Adopt', to:'/adopt'}],
-            animals: [],
+            dogs: [],
+            cats: [],
+          //  users: new Queue()
         }
     }
+
+    componentDidMount() {
+      //  this.state.users.enqueue({name: 'Tom', time: 10});
+        DogApiService.getAllDogs()
+            .then(res=> this.setState({dogs: res}));
+        CatApiService.getAllCats()
+            .then(res=> this.setState({cats: res}));
+
+    }
+
 
     render() {
         return (
@@ -29,7 +44,8 @@ class App extends Component {
                     
                     <Switch>
                         <Route path={'/adopt'} component={() => <Adoption/>}/>
-                        <Route path={'/animals'} component={() => <Animals animals={this.state.animals}/>}/>
+                        <Route path={'/animals'} component={() => <Animals animals={[...this.state.cats, ...this.state.dogs]}/>}/>
+                        <Route path={'/queue'} component={() => <Line users={this.state.users}/>}/>
                         <Route exact path={'/'} component={() => <Home/>}/>
                     </Switch>
                     
