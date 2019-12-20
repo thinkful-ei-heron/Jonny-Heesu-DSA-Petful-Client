@@ -20,6 +20,7 @@ class App extends Component {
             cats: [],
             users: []
         }
+        this.updateUsers = this.updateUsers.bind(this)
     }
 
     componentDidMount() {
@@ -31,7 +32,10 @@ class App extends Component {
         UserApiService.getAllUsers()
             .then(res=> this.setState({users: res}));
     }
-
+    updateUsers(users) {
+        if(users)
+            this.setState({users: users})
+    }
     render() {
         return (
             <Router>
@@ -41,7 +45,7 @@ class App extends Component {
                     <Switch>
                         <Route path={'/adopt'} component={() => <Adoption/>}/>
                         <Route path={'/animals'} component={() => <Animals animals={[...this.state.cats, ...this.state.dogs]}/>}/>
-                        <Route path={'/queue'} component={() => <Line users={this.state.users}/>}/>
+                        <Route path={'/queue'} component={() => <Line updateUsers={this.updateUsers} cats={this.state.cats} dogs={this.state.dogs} users={this.state.users} animals={[...this.state.cats, ...this.state.dogs]}/>}/>
                         <Route exact path={'/'} component={() => <Home/>}/>
                     </Switch>
                     
@@ -52,8 +56,6 @@ class App extends Component {
             </Router>
         );
     }
-};
+}
 
 export default App;
-
-

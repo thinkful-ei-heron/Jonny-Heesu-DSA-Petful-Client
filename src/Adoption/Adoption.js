@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Adoption.css';
-//import UserApiService from "../services/user-api-service";
 import {Link} from "react-router-dom";
 
 class Adoption extends Component {

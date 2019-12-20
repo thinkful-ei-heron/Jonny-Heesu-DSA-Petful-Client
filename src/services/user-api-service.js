@@ -21,7 +21,7 @@ const UserApiService = {
         return fetch(`${config.API_ENDPOINT}/api/users`, {
             method: 'POST',
             headers: {'content-type': 'application/json'},
-            body: JSON.stringify(name)
+            body: JSON.stringify({name: name})
         })
     },
     deleteUser(id) {
