@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import './Line.css';
 import UserApiService from "../services/user-api-service";
 import Animals from "../Animals/Animals";
-import DogApiService from "../services/dogs-api-service";
-import CatApiService from "../services/cats-api-service";
+// import DogApiService from "../services/dogs-api-service";
+// import CatApiService from "../services/cats-api-service";
 
 class Line extends Component {
     constructor(props) {
