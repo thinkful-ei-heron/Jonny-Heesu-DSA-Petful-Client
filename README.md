@@ -1,4 +1,4 @@
-# Name: FIFO Pet Adaption Agency
+# FIFO Pet Adaption Agency
 
 ## Pair: Jonny Deates and Heesu Kang
 
