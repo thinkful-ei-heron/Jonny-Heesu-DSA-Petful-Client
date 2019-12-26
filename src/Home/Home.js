@@ -4,6 +4,7 @@ class Home extends Component {
     render() {
         return (
             <div className="home">
+                <img src="https://images.dog.ceo/breeds/akita/Akita_Inu_dog.jpg" alt="landingImg" />
                 <h2>About our Mission</h2>
                 <p>The FIFO Pet Adaption Agency is an animals shelter which allows adoption of dogs and cats. 
                     There are many dogs and cats waiting for new sweet family to live together.
