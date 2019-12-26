@@ -8,7 +8,7 @@ class Animals extends Component {
                 {this.props.animals.map((animal, index) =>
                     <div className='info' key={index}>
                         <img src={animal.imageURL} alt='animals'/>
-                        <h3>{animal.name}</h3>
+                        <h3>Name: {animal.name}</h3>
                         <p>Description: {animal.imageDescription}</p>
                         <p>Sex: {animal.sex}</p>
                         <p>Age: {animal.age}</p>
@@ -21,6 +21,5 @@ class Animals extends Component {
 };
 
 export default Animals;
-
 
 

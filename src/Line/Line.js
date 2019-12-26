@@ -29,7 +29,7 @@ class Line extends Component {
                 // let rand = Math.floor(Math.random()*2);
                 // (rand % 2 === 0) ? DogApiService.deleteGoal( this.props.dogs.find((dog, i)=> i === Math.floor(Math.random()*(this.props.dogs.length-1))).id)
                 //     : CatApiService.deleteCat(this.props.cats.find((cat, i)=> i === Math.floor(Math.random()*(this.props.cats.length-1))).id)
-        })
+            })
         }, 2000);
         this.setState({input: ''})
     }
@@ -39,11 +39,13 @@ class Line extends Component {
             <h2>Current Queue:</h2>
             {this.props.users.map((user, index) => <p key={index}>{user.name}</p>)}
             <h2>Join the Line!</h2>
+            
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <input value={this.state.input} onChange={(e) => this.handleInput(e)}/>
                 <button type='submit'>Submit</button>
             </form>
         </> : <><h1>Time to Adopt</h1><Animals animals={this.props.animals}/></>
+        
         return (
             <div className="line-list">
                 {body}
@@ -53,6 +55,5 @@ class Line extends Component {
 };
 
 export default Line;
-
 
 
