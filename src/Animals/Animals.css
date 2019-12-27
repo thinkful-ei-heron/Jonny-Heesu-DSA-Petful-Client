@@ -1,7 +1,13 @@
 .animals-list img{
   width: 60%;
 }
-
+.grayscale {
+  filter: grayscale(1);
+}
+.half-width {
+  max-width: 30vw;
+  display: inline-block;
+}
 .info {
   padding-top: 2.5rem;
 }

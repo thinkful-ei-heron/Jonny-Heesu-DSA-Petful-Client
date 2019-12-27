@@ -29,6 +29,15 @@ const UserApiService = {
             method: 'DELETE',
         })
     },
+    resetUsers() {
+        return fetch(`${config.API_ENDPOINT}/api/users/reset-users`)
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+
     moveLine(){
         return fetch(`${config.API_ENDPOINT}/api/users/line`)
             .then(res =>

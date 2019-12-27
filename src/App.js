@@ -2,56 +2,74 @@ import React, {Component} from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import TopNav from "./TopNav/TopNav";
-import {BrowserRouter as Router, Route,Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "./Home/Home";
 import Animals from "./Animals/Animals";
 import Adoption from "./Adoption/Adoption";
-import DogApiService from "./services/dogs-api-service";
-import CatApiService from "./services/cats-api-service";
 import UserApiService from "./services/user-api-service";
 import Line from "./Line/Line";
+import AnimalsApiService from "./services/animals-api-service";
+
 //import Line from "./Line/Line";
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            links: [{name: 'Home', to:'/'},{name: 'Animals', to:'/animals'}, {name: 'Adopt', to:'/adopt'}],
-            dogs: [],
-            cats: [],
-            users: []
-        }
-        this.updateUsers = this.updateUsers.bind(this)
+            links: [{name: 'Home', to: '/'}, {name: 'Animals', to: '/animals'}, {name: 'Adopt', to: '/adopt'}],
+            animals: [],
+            users: [],
+            username: '',
+            animalAdopted: null
+        };
+        this.updateAnimals = this.updateAnimals.bind(this);
+        this.updateUsers = this.updateUsers.bind(this);
+        this.saveUsername = this.saveUsername.bind(this);
+        this.saveAnimal = this.saveAnimal.bind(this);
+        UserApiService.resetUsers().then(res => this.updateUsers(res));
     }
 
     componentDidMount() {
-    //  this.state.users.enqueue({name: 'Tom', time: 10});
-        DogApiService.getAllDogs()
-            .then(res=> this.setState({dogs: res}));
-        CatApiService.getAllCats()
-            .then(res=> this.setState({cats: res}));
-        UserApiService.getAllUsers()
-            .then(res=> this.setState({users: res}));
+        AnimalsApiService.getAllAnimals().then(res => this.updateAnimals(res))
     }
+
+    updateAnimals(animals) {
+        if(animals)
+            this.setState({animals: animals})
+    }
+
     updateUsers(users) {
-        if(users)
+        if (users)
             this.setState({users: users})
     }
+
+    saveUsername(name) {
+        this.setState({username: name});
+    }
+
+    saveAnimal(animal) {
+        this.setState({animalAdopted: animal})
+    }
+
     render() {
         return (
             <Router>
                 <div className="App">
                     <Route render={(routeProps) => <TopNav currentActive={routeProps.location}
-                                                    links={this.state.links}/>}/>
+                                                           links={this.state.links}/>}/>
                     <Switch>
                         <Route path={'/adopt'} component={() => <Adoption/>}/>
-                        <Route path={'/animals'} component={() => <Animals animals={[...this.state.cats, ...this.state.dogs]}/>}/>
-                        <Route path={'/queue'} component={() => <Line updateUsers={this.updateUsers} cats={this.state.cats} dogs={this.state.dogs} users={this.state.users} animals={[...this.state.cats, ...this.state.dogs]}/>}/>
+                        <Route path={'/animals'}
+                               component={() => <Animals animals={this.state.animals}/>}/>
+                        <Route path={'/queue'}><Line updateUsers={this.updateUsers} users={this.state.users}
+                                                      username={this.state.username}
+                                                      animalAdopted={this.state.animalAdopted}
+                                                     updateAnimals={this.updateAnimals}
+                                                      saveUsername={this.saveUsername} saveAnimal={this.saveAnimal}/>
+                        </Route>
                         <Route exact path={'/'} component={() => <Home/>}/>
                     </Switch>
-                    
-                    <footer>
-                        Copyright © 2019  Heesu Kang & Jonny Deates. All rights reserved.
-                    </footer>
+
+                    <footer>Copyright © 2019 Heesu Kang & Jonny Deates. All rights reserved.</footer>
                 </div>
             </Router>
         );
