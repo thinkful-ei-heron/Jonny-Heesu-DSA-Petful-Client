@@ -14,6 +14,8 @@ Server Repo: [server](https://github.com/thinkful-ei-heron/Jonny-Heesu-DSA-Petfu
 
 The FIFO Pet Adaption Agency is an animals shelter which allows adoption of dogs and cats. There are many dogs and cats waiting for new sweet family to live together. People can adopt a dog and a cat, but they need to visit our shelter first. Also, people who want to adopt need to wait until their turn.
 
+-----------------------
+
 ### /api/users
 
 Gets all of the current users in line waiting to view the adoption list.
